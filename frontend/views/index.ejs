@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <h1 class="container text-5xl my-5 mx-auto text-center">
+            Address Book
+        </h1>
+        <div
+            class="container text-3xl border-4 rounded-md border-black h-full mx-auto text-center"
+        >
+            <div id="buttons-container">
+                <button
+                    id="add-new-address"
+                    class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3 disabled:bg-gray-400 disabled:text-white"
+                >
+                    New Address
+                </button>
+                <div
+                    id="filterbuttons"
+                    class="flex justify-between text-2xl py-3 mb-5 bg-blue-200"
+                >
+                    <button type="button" id="filter-none" class="mx-auto">
+                        ALL
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-A"
+                        class="mx-auto filter-button"
+                    >
+                        A
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-B"
+                        class="mx-auto filter-button"
+                    >
+                        B
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-C"
+                        class="mx-auto filter-button"
+                    >
+                        C
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-D"
+                        class="mx-auto filter-button"
+                    >
+                        D
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-E"
+                        class="mx-auto filter-button"
+                    >
+                        E
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-F"
+                        class="mx-auto filter-button"
+                    >
+                        F
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-G"
+                        class="mx-auto filter-button"
+                    >
+                        G
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-H"
+                        class="mx-auto filter-button"
+                    >
+                        H
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-I"
+                        class="mx-auto filter-button"
+                    >
+                        I
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-J"
+                        class="mx-auto filter-button"
+                    >
+                        J
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-K"
+                        class="mx-auto filter-button"
+                    >
+                        K
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-L"
+                        class="mx-auto filter-button"
+                    >
+                        L
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-M"
+                        class="mx-auto filter-button"
+                    >
+                        M
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-N"
+                        class="mx-auto filter-button"
+                    >
+                        N
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-O"
+                        class="mx-auto filter-button"
+                    >
+                        O
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-P"
+                        class="mx-auto filter-button"
+                    >
+                        P
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-Q"
+                        class="mx-auto filter-button"
+                    >
+                        Q
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-R"
+                        class="mx-auto filter-button"
+                    >
+                        R
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-S"
+                        class="mx-auto filter-button"
+                    >
+                        S
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-T"
+                        class="mx-auto filter-button"
+                    >
+                        T
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-U"
+                        class="mx-auto filter-button"
+                    >
+                        U
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-V"
+                        class="mx-auto filter-button"
+                    >
+                        V
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-W"
+                        class="mx-auto filter-button"
+                    >
+                        W
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-X"
+                        class="mx-auto filter-button"
+                    >
+                        X
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-Y"
+                        class="mx-auto filter-button"
+                    >
+                        Y
+                    </button>
+                    <button
+                        type="button"
+                        id="filter-Z"
+                        class="mx-auto filter-button"
+                    >
+                        Z
+                    </button>
+                </div>
+            </div>
+            <!-- Form for create new address: display absolute -->
+            <div
+                id="new-address-block"
+                class="absolute left-2/4 shadow-lg border-2 w-94 border-black z-50 bg-white rounded-lg px-10 py-6 hidden"
+            >
+                <form
+                    action="http://localhost:5001/api/Addresses/create"
+                    method="post"
+                >
+                    <div id="form-input" class="flex justify-end text-lg">
+                        <div class="flex flex-col">
+                            <button
+                                type="button"
+                                id="cancel-new-address"
+                                class="text-center w-10 h-10 mb-4 rounded-lg shadow-lg bg-red-200"
+                            >
+                                X
+                            </button>
+                            <h3 class="text-2xl">Add new Address</h3>
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="add-name"
+                                class="border-2 border-black"
+                                name="name"
+                            />
+                            <label for="street">Street</label>
+                            <input
+                                type="text"
+                                id="add-street"
+                                class="border-2 border-black"
+                                name="street"
+                            />
+                            <label for="streetNo">Street Number</label>
+                            <input
+                                type="text"
+                                id="add-streetNo"
+                                class="border-2 border-black"
+                                name="streetNo"
+                            />
+                            <label for="city">City</label>
+                            <input
+                                type="text"
+                                id="add-city"
+                                class="border-2 border-black"
+                                name="city"
+                            />
+                            <label for="postCode">Post Code</label>
+                            <input
+                                type="text"
+                                id="add-postCode"
+                                class="border-2 border-black"
+                                name="postCode"
+                            />
+                            <input
+                                type="submit"
+                                id="submit-new-address"
+                                class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div
+                id="edit-address-block"
+                class="absolute left-2/4 shadow-lg border-2 w-94 border-black z-50 bg-white rounded-lg px-10 py-6 hidden"
+            >
+                <form method="post">
+                    <div id="form-input" class="flex justify-end text-lg">
+                        <div class="flex flex-col">
+                            <div class="flex justify-between">
+                                <button
+                                    type="button"
+                                    id="cancel-edit-address"
+                                    class="text-center w-10 h-10 mb-4 rounded-lg shadow-lg bg-red-200"
+                                >
+                                    X
+                                </button>
+                                <input
+                                    type="submit"
+                                    id="delete-address"
+                                    formaction="http://localhost:5001/api/Addresses/delete"
+                                    class="text-center w-16 h-10 mb-4 rounded-lg shadow-lg bg-red-200"
+                                    value="Delete"
+                                />
+                            </div>
+                            <h3 class="text-2xl">Edit Address</h3>
+                            <input
+                                type="text"
+                                id="edit-id"
+                                class="border-2 border-black hidden"
+                                name="id"
+                            />
+                            <label for="entry-name">Name</label>
+                            <input
+                                type="text"
+                                id="edit-name"
+                                class="border-2 border-black"
+                                name="name"
+                            />
+                            <label for="street">Street</label>
+                            <input
+                                type="text"
+                                id="edit-street"
+                                class="border-2 border-black"
+                                name="street"
+                            />
+                            <label for="streetNo">Street Number</label>
+                            <input
+                                type="text"
+                                id="edit-streetNo"
+                                class="border-2 border-black"
+                                name="streetNo"
+                            />
+                            <label for="city">City</label>
+                            <input
+                                type="text"
+                                id="edit-city"
+                                class="border-2 border-black"
+                                name="city"
+                            />
+                            <label for="postCode">Post Code</label>
+                            <input
+                                type="text"
+                                id="edit-postCode"
+                                class="border-2 border-black"
+                                name="postCode"
+                            />
+                            <input
+                                type="submit"
+                                formaction="http://localhost:5001/api/Addresses/edit"
+                                id="submit-edit-address"
+                                class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3"
+                                value="Edit"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="address-content-main" class="grid grid-cols-3 my-5">
+                <!-- NamesList goes here -->
+            </div>
+        </div>
+
+        <script src="/scripts/jscript.js"></script>
+    </body>
+</html>
