@@ -20,4 +20,11 @@ public class CreateAddress
     [Required]
     public string PostCode { get; set; }
 
+    public CreateAddress() {
+        Name = "";
+        Street = "";
+        StreetNo = "";
+        City = "";
+        PostCode = "";
+    }
 }

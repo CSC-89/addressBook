@@ -22,4 +22,11 @@ public class EditAddress
     [Required]
     public string PostCode { get; set; }
 
+    public EditAddress() {
+        Name = "";
+        Street = "";
+        StreetNo = "";
+        City = "";
+        PostCode = "";
+    }
 }

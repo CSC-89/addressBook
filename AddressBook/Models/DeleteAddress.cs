@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 public class DeleteAddress
 {
     [Required]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [Required]
     public string Name { get; set; }
 
@@ -22,4 +22,12 @@ public class DeleteAddress
     [Required]
     public string PostCode { get; set; }
 
+    public DeleteAddress() {
+        Id = null;
+        Name = "";
+        Street = "";
+        StreetNo = "";
+        City = "";
+        PostCode = "";
+    }
 }
