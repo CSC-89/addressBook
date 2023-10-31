@@ -24,11 +24,14 @@ const buildElements = (data) => {
         postcode.innerText = element.postCode;
         //Decorate
         addressBox.classList.add(
+            "p-1",
             "m-3",
             "border-2",
             "border-black",
             "rounded-md",
-            "cursor-pointer"
+            "cursor-pointer",
+            "bg-slate-100",
+            "hover:bg-slate-200"
         );
         addressBox.id = "address-box";
         addressItems.id = "address-id-" + element.id;
@@ -46,12 +49,12 @@ const buildElements = (data) => {
         addressBox.addEventListener("click", () => {
             console.log("clicked Address Box " + element.id);
             //Send data to box
-            const idInput = document.getElementById('edit-id');
-            const nameInput = document.getElementById('edit-name');
-            const streetInput = document.getElementById('edit-street');
-            const streetNoInput = document.getElementById('edit-streetNo');
-            const cityInput = document.getElementById('edit-city');
-            const postCodeInput = document.getElementById('edit-postCode');
+            const idInput = document.getElementById("edit-id");
+            const nameInput = document.getElementById("edit-name");
+            const streetInput = document.getElementById("edit-street");
+            const streetNoInput = document.getElementById("edit-streetNo");
+            const cityInput = document.getElementById("edit-city");
+            const postCodeInput = document.getElementById("edit-postCode");
 
             idInput.value = element.id;
             nameInput.value = element.firstName + " " + element.lastName;
@@ -150,9 +153,33 @@ filtersArr.forEach((letter) => {
         let filteredResults = data.filter((element) => {
             return element.lastName[0] === letter;
         });
-
-        buildElements(filteredResults);
-        console.log(filteredResults);
+        if (filteredResults.length) {
+            buildElements(filteredResults);
+        } else {
+            const addressBox = document.createElement("div");
+            const message1 = document.createElement("h1");
+            const message2 = document.createElement("h2");
+            //Assign
+            message1.innerText = "SORRY";
+            message2.innerText = "No results found";
+            //Decorate
+            addressBox.classList.add(
+                "col-start-2",
+                "p-8",
+                "m-3",
+                "border-2",
+                "border-black",
+                "rounded-md",
+                "cursor-pointer",
+                "bg-slate-100",
+                "hover:bg-slate-200"
+            );
+            addressBox.id = "address-box";
+            //Attach;
+            addressBox.appendChild(message1);
+            addressBox.appendChild(message2);
+            mainContentMain.appendChild(addressBox);
+        }
     });
 });
 

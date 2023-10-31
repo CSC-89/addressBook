@@ -4,25 +4,33 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap"
+        rel="stylesheet"
+        />
     </head>
-    <body>
-        <h1 class="container text-5xl my-5 mx-auto text-center">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <body class="bg-slate-100" style="font-family: 'Cutive Mono', monospace;">
+        <h1
+            class="container text-5xl my-5 mx-auto text-center py-10 border-4 rounded-lg bg-white border-black w-96"
+        >
             Address Book
         </h1>
         <div
-            class="container text-3xl border-4 rounded-md border-black h-full mx-auto text-center"
+            class="container text-3xl border-4 rounded-md border-black mx-auto text-center bg-white min-h-96 h-full"
         >
             <div id="buttons-container">
                 <button
                     id="add-new-address"
-                    class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3 disabled:bg-gray-400 disabled:text-white"
+                    class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-5 disabled:bg-gray-400 disabled:text-white"
                 >
                     New Address
                 </button>
                 <div
                     id="filterbuttons"
-                    class="flex justify-between text-2xl py-3 mb-5 bg-blue-200"
+                    class="flex justify-between text-2xl py-3 mb-5 bg-blue-200 font-sans"
                 >
                     <button type="button" id="filter-none" class="mx-auto">
                         ALL
@@ -281,7 +289,6 @@
                 <form method="post">
                     <div id="form-input" class="flex justify-end text-lg">
                         <div class="flex flex-col">
-                            <div class="flex justify-between">
                                 <button
                                     type="button"
                                     id="cancel-edit-address"
@@ -289,14 +296,6 @@
                                 >
                                     X
                                 </button>
-                                <input
-                                    type="submit"
-                                    id="delete-address"
-                                    formaction="http://localhost:5001/api/Addresses/delete"
-                                    class="text-center w-16 h-10 mb-4 rounded-lg shadow-lg bg-red-200"
-                                    value="Delete"
-                                />
-                            </div>
                             <h3 class="text-2xl">Edit Address</h3>
                             <input
                                 type="text"
@@ -339,6 +338,7 @@
                                 class="border-2 border-black"
                                 name="postCode"
                             />
+                            <div class="flex justify-between">
                             <input
                                 type="submit"
                                 formaction="http://localhost:5001/api/Addresses/edit"
@@ -346,6 +346,14 @@
                                 class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3"
                                 value="Edit"
                             />
+                            <input
+                                    type="submit"
+                                    id="delete-address"
+                                    formaction="http://localhost:5001/api/Addresses/delete"
+                                    class="mx-auto rounded-lg shadow-lg border-black bg-red-200 p-2 m-3"
+                                    value="Delete"
+                                />
+                                </div>
                         </div>
                     </div>
                 </form>
