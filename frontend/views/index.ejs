@@ -7,12 +7,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-        href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap"
-        rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap"
+            rel="stylesheet"
         />
     </head>
     <script src="https://cdn.tailwindcss.com"></script>
-    <body class="bg-slate-100" style="font-family: 'Cutive Mono', monospace;">
+    <body class="bg-slate-100" style="font-family: 'Cutive Mono', monospace">
         <h1
             class="container text-5xl my-5 mx-auto text-center py-10 border-4 rounded-lg bg-white border-black w-96"
         >
@@ -289,13 +289,13 @@
                 <form method="post">
                     <div id="form-input" class="flex justify-end text-lg">
                         <div class="flex flex-col">
-                                <button
-                                    type="button"
-                                    id="cancel-edit-address"
-                                    class="text-center w-10 h-10 mb-4 rounded-lg shadow-lg bg-red-200"
-                                >
-                                    X
-                                </button>
+                            <button
+                                type="button"
+                                id="cancel-edit-address"
+                                class="text-center w-10 h-10 mb-4 rounded-lg shadow-lg bg-red-200"
+                            >
+                                X
+                            </button>
                             <h3 class="text-2xl">Edit Address</h3>
                             <input
                                 type="text"
@@ -338,22 +338,46 @@
                                 class="border-2 border-black"
                                 name="postCode"
                             />
-                            <div class="flex justify-between">
-                            <input
-                                type="submit"
-                                formaction="http://localhost:5001/api/Addresses/edit"
-                                id="submit-edit-address"
-                                class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3"
-                                value="Edit"
-                            />
-                            <input
+                            <div
+                                id="edit-delete-buttons"
+                                class="flex justify-between m-3"
+                            >
+                                <button
                                     type="submit"
-                                    id="delete-address"
-                                    formaction="http://localhost:5001/api/Addresses/delete"
+                                    formaction="http://localhost:5001/api/Addresses/edit"
+                                    id="submit-edit-address"
+                                    class="mx-auto rounded-lg shadow-lg border-black bg-blue-200 p-2 m-3"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    id="delete-address-button"
+                                    type="button"
                                     class="mx-auto rounded-lg shadow-lg border-black bg-red-200 p-2 m-3"
-                                    value="Delete"
-                                />
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                            <div id="confirm-delete-box" class="hidden m-3">
+                                <h4>Are you Sure?</h4>
+                                <div class="flex justify-between">
+                                    <button
+                                        id="delete-cancel-button"
+                                        class="mx-auto rounded-lg shadow-lg border-black bg-red-200 p-2 m-3"
+                                        type="button"
+                                    >
+                                        NO
+                                    </button>
+                                    <button
+                                        class="mx-auto rounded-lg shadow-lg border-black bg-green-200 p-2 m-3"
+                                        id="delete-address"
+                                        formaction="http://localhost:5001/api/Addresses/delete"
+                                        type="submit"
+                                    >
+                                        YES
+                                    </button>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </form>

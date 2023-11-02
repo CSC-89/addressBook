@@ -7,7 +7,8 @@ const submitCreateButton = document.getElementById("submit-new-address");
 const submitEditButton = document.getElementById("submit-edit-address");
 const addAddressCancelButton = document.getElementById("cancel-new-address");
 const editAddressCancelButton = document.getElementById("cancel-edit-address");
-const deleteAddressButton = document.getElementById("delete-address");
+const deleteAddressButton = document.getElementById("delete-address-button");
+const deleteCancelButton = document.getElementById("delete-cancel-button");
 const buildElements = (data) => {
     data.forEach((element) => {
         //Build
@@ -104,9 +105,21 @@ editAddressCancelButton.addEventListener("click", () => {
     editAddress.classList.add("hidden");
 });
 
-// deleteAddressButton.addEventListener("click", () => {
-//     editAddress.classList.add("hidden");
-// })
+deleteAddressButton.addEventListener("click", () => {
+    console.log("Clicked delete button");
+    const editDeleteButtons = document.getElementById("edit-delete-buttons");
+    const deleteConfirm = document.getElementById("confirm-delete-box");
+    editDeleteButtons.classList.add("hidden");
+    deleteConfirm.classList.remove("hidden");
+})
+
+deleteCancelButton.addEventListener("click", () => {
+    console.log("Clicked delete button");
+    const editDeleteButtons = document.getElementById("edit-delete-buttons");
+    const deleteConfirm = document.getElementById("confirm-delete-box");
+    deleteConfirm.classList.add("hidden");
+    editDeleteButtons.classList.remove("hidden");
+})
 
 //Filters
 const allResults = document.getElementById("filter-none");
